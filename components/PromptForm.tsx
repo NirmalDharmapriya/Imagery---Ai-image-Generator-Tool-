@@ -1,4 +1,3 @@
-
 import React from 'react';
 import type { AspectRatio } from '../types';
 
@@ -28,9 +27,9 @@ const PromptForm: React.FC<PromptFormProps> = ({
   const maxPromptLength = 1000;
 
   return (
-    <div className="bg-slate-800/50 rounded-lg shadow-lg p-6 space-y-6 h-full flex flex-col border border-slate-700">
+    <div className="bg-gray-50 rounded-lg shadow-md p-6 space-y-6 h-full flex flex-col border border-gray-300">
       <div className="flex-grow flex flex-col">
-        <label htmlFor="prompt" className="block text-sm font-medium text-slate-300 mb-2">
+        <label htmlFor="prompt" className="block text-sm font-medium text-gray-700 mb-2">
           Image Prompt
         </label>
         <div className="relative flex-grow">
@@ -39,19 +38,19 @@ const PromptForm: React.FC<PromptFormProps> = ({
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             placeholder="A futuristic cityscape at dusk, with flying cars and neon lights..."
-            className="w-full h-full min-h-[150px] bg-slate-900 border border-slate-600 rounded-md p-3 text-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 resize-none"
+            className="w-full h-full min-h-[150px] bg-white border border-gray-300 rounded-md p-3 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 resize-none"
             maxLength={maxPromptLength}
             disabled={isLoading}
             aria-describedby="prompt-character-count"
           />
-          <div id="prompt-character-count" className="absolute bottom-2 right-2 text-xs text-slate-500">
+          <div id="prompt-character-count" className="absolute bottom-2 right-2 text-xs text-gray-500">
             {prompt.length} / {maxPromptLength}
           </div>
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-slate-300 mb-2">
+        <label className="block text-sm font-medium text-gray-700 mb-2">
           Aspect Ratio
         </label>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -61,10 +60,10 @@ const PromptForm: React.FC<PromptFormProps> = ({
               type="button"
               onClick={() => setAspectRatio(ratio)}
               disabled={isLoading}
-              className={`py-2 px-3 text-sm rounded-md transition duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-indigo-500 ${
+              className={`py-2 px-3 text-sm rounded-md transition duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-blue-500 ${
                 aspectRatio === ratio
-                  ? 'bg-indigo-600 text-white font-semibold'
-                  : 'bg-slate-700 hover:bg-slate-600 text-slate-300'
+                  ? 'bg-blue-600 text-white font-bold border border-blue-700'
+                  : 'bg-white hover:bg-gray-100 text-gray-700 border border-gray-300'
               }`}
             >
               {ratio}
@@ -77,7 +76,7 @@ const PromptForm: React.FC<PromptFormProps> = ({
         <button
           onClick={onGenerate}
           disabled={isLoading || !prompt}
-          className="w-full flex justify-center items-center bg-indigo-600 text-white font-bold py-3 px-4 rounded-md hover:bg-indigo-700 disabled:bg-indigo-800/50 disabled:text-slate-400 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-105"
+          className="w-full flex justify-center items-center bg-blue-600 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-700 disabled:bg-blue-400 disabled:text-white/75 disabled:cursor-not-allowed transition-all duration-200 border-b-4 border-blue-800 active:translate-y-1 active:border-b-0 disabled:border-0 disabled:translate-y-0"
         >
           {isLoading ? (
             <>
@@ -94,7 +93,7 @@ const PromptForm: React.FC<PromptFormProps> = ({
         <button
           onClick={onRegenerate}
           disabled={isLoading || !canRegenerate}
-          className="w-full bg-slate-700 text-slate-300 font-bold py-2 px-4 rounded-md hover:bg-slate-600 disabled:bg-slate-700/50 disabled:text-slate-500 disabled:cursor-not-allowed transition duration-150"
+          className="w-full bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-gray-400 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed transition-all duration-150 border-b-4 border-gray-500 active:translate-y-1 active:border-b-0 disabled:border-0 disabled:translate-y-0"
         >
           Regenerate Last Image
         </button>

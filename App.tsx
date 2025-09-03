@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from 'react';
 import type { GeneratedImage, AspectRatio } from './types';
 import { generateImageFromPrompt } from './services/geminiService';
@@ -82,13 +81,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-200 font-sans flex flex-col items-center p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-gray-200 text-gray-800 font-sans flex flex-col items-center p-4 sm:p-6 lg:p-8">
       <div className="w-full max-w-7xl mx-auto">
         <header className="text-center mb-8">
-          <h1 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-800">
             AI Image Generator
           </h1>
-          <p className="text-slate-400 mt-2">Powered by Google Gemini API</p>
+          <p className="text-gray-600 mt-2">Powered by Google Gemini API</p>
         </header>
 
         <main className="grid grid-cols-1 lg:grid-cols-12 gap-8">
