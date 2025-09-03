@@ -1,0 +1,5 @@
+{
+  "name": "AI Image Generator",
+  "description": "A responsive, single-page AI image generator web application using the Google Gemini API. It allows users to generate images from text prompts, select aspect ratios, view a history of generated images, and download them.",
+  "requestFramePermissions": []
+}
